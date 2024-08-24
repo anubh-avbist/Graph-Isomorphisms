@@ -1,0 +1,32 @@
+td {
+	border: 3px solid black;
+	vertical-align: top;
+	width:50%;
+}
+
+table {
+	width:100%;
+}
+
+#content {
+	width:40%;
+	padding-right:1%;
+	border-right:3px dotted black;
+	align:left;
+	display:inline-block;
+	margin:auto;
+	float:left;
+}
+
+#instructions {
+	width:54%;
+	margin-right:2%;
+	display:inline-block;
+	margin:auto;
+}
+
+body{
+	vertical-align: top;
+	align:left;
+	
+}

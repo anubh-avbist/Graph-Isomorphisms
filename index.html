@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Graph Isomorphisms</title>
+	<script src="p5.min.js"></script>
+	<script src="Graph.js"></script>
+	<script src="script.js"></script>
+	<link href="style.css" rel="stylesheet">
+</head>
+
+
+<body>
+	<h1>
+		Graph Isomorphisms
+	</h1>
+	<br>
+
+	<div id="content">
+		<h3>Click on the canvas!</h3>
+
+	</div>
+	<div id = "instructions">
+		<p>
+			<b>Instructions:</b>Press e to change edit mode, and c to change which graph (G or H) that you're editing. 
+			If you're in "Adding Nodes" mode, click around the graph to add nodes. If you're in "Adding Edges" mode,
+			click on one node and another node of the same graph to create an edge between them. All graphs are simple, meaning that 
+			you cannot make edges from a node to itself, and each pair of ndoes has at most one edge. The rest 
+			of the important info should be listed below:
+		</p>
+
+		<div id="info">
+			<h2>Graphs</h2>
+			<h3 id = "Isomorphic">Isomorphic: True</h3>
+			<h3 id = "Mode">Edit Mode: Node Mode</h3>
+			<p>Press e to change edit mode!</p>
+			<h3 id = "Graph">Editing Graph: G (Red)</h3>
+			<p>Press c to change which graph you're adding nodes to!</p>
+			<table>
+				<tr>
+					<td id = "GInfo"></td>
+					<td id ="HInfo"></td>
+				</tr>
+
+			</table>
+
+		</div>
+		
+	</div>
+</body>
+
+</html>
