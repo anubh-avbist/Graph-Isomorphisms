@@ -1,3 +1,9 @@
+@font-face {
+	font-family: Inconsolata;
+	src: url(https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap);
+}
+  
+
 td {
 	border: 3px solid black;
 	vertical-align: top;
@@ -11,7 +17,6 @@ table {
 #content {
 	width:40%;
 	padding-right:1%;
-	border-right:3px dotted black;
 	align:left;
 	display:inline-block;
 	margin:auto;
@@ -28,5 +33,6 @@ table {
 body{
 	vertical-align: top;
 	align:left;
+	font-family: Inconsolata;
 	
 }
