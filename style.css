@@ -2,37 +2,39 @@
 	font-family: Inconsolata;
 	src: url(https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap);
 }
-  
+
+
 
 td {
 	border: 3px solid black;
 	vertical-align: top;
-	width:50%;
+	width: 50%;
 }
 
 table {
-	width:100%;
+	width: 100%;
 }
 
 #content {
-	width:40%;
-	padding-right:1%;
-	align:left;
-	display:inline-block;
-	margin:auto;
-	float:left;
+	width: 40%;
+	padding-right: 1%;
+	align: left;
+	display: inline-block;
+	margin: auto;
+	float: left;
 }
 
 #instructions {
-	width:54%;
-	margin-right:2%;
-	display:inline-block;
-	margin:auto;
+	width: 54%;
+	margin-right: 2%;
+	display: inline-block;
+	margin: auto;
+	font-family: Inconsolata;
 }
 
-body{
+body {
 	vertical-align: top;
-	align:left;
+	align: left;
 	font-family: Inconsolata;
-	
+
 }

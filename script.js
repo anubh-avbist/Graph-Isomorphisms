@@ -111,5 +111,10 @@ function checkIsomorphic(a,b){
 		return false;
 	}
 	
-	return true;
+
+	if(a.adjacencyMatrixString() === b.adjacencyMatrixString()){
+		return true;
+	} else {
+		return false;
+	}
 }

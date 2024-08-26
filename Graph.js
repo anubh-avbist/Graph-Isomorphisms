@@ -38,7 +38,32 @@ class Graph {
 		for (let edge of this.edges) {
 			str += "\t" + edge.name + "\n";
 		}
+		str += "\n ----\n"
+		str += this.adjacencyMatrixString();
+		str += "\n ----\n"
 		return str;
+	}
+
+	adjacencyMatrixString(){
+		let str = "";
+		this.adjacencyMatrix.forEach((row) => {
+			str += "[";
+			row.forEach((val) => {
+				str += val + ", ";
+			})
+			str = str.substring(0, str.length - 2);
+			str += "]\n";
+		})
+		return str;
+	}
+
+	get adjacencyMatrix(){
+		let matrix = Array(this.order).fill().map(() => Array(this.order).fill(0));
+		this.edges.forEach((edge) => {
+			matrix[edge.a.id][edge.b.id] = 1;
+			matrix[edge.b.id][edge.a.id] = 1;
+		})
+		return matrix;
 	}
 }
 
@@ -89,3 +114,6 @@ class Edge {
 		line(this.a.pos[0], this.a.pos[1], this.b.pos[0], this.b.pos[1]);
 	}
 }
+
+
+console.log(Array(5).fill(0) == Array(5).fill(0));
