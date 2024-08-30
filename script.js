@@ -106,15 +106,61 @@ function updateHTML(){
 	document.getElementById("Isomorphic").innerHTML = "Isomorphic: " + (Isomorphic ? "True" : "False");
 }
 
+function swap(A, i, j){
+	let temp = A[i];
+	A[i] = A[j];
+	A[j] = temp;
+}
+
+function generate(n, arr){
+	
+	let permutations = [];
+	let A = Array.from(arr);
+	permutations = [];
+	let c = Array(n).fill(0);
+	permutations.push(Array.from(A));
+
+	let i = 1;
+	while(i<n){
+		if(c[i]<i){
+			if(i%2==0){
+				swap(A, 0, i);
+			} else {
+				swap(A, c[i], i);
+			}
+			permutations.push(Array.from(A));
+			c[i]++;
+			i=1;
+		} else {
+			c[i] = 0;
+			i++;
+		}
+	}
+	return permutations;
+
+}
+
 function checkIsomorphic(a,b){
 	if(a.order != b.order || a.edges.length != b.edges.length){
 		return false;
 	}
-	
 
-	if(a.adjacencyMatrixString() === b.adjacencyMatrixString()){
-		return true;
-	} else {
-		return false;
+	let perms = generate(a.nodes.length, a.nodes);
+	for(const perm of perms){
+		for(let i = 0; i < perm.length; i++){
+			perm[i].id=i;
+		}
+		let graph = new Graph("g", "red", "blue");
+		graph.nodes = perm;
+		graph.order = perm.length;
+		console.log(graph.adjacencyMatrixString());
+		if(graph.adjacencyMatrixString() === b.adjacencyMatrixString()){
+			return true;
+		}
 	}
+	console.log("REAL false");
+	return false;
+	
+	
 }
+

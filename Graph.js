@@ -7,6 +7,7 @@ class Graph {
 		this.edges = [];
 		this.order = 0;
 	}
+	
 
 	addNode(node) {
 		this.nodes.push(node);
@@ -44,7 +45,7 @@ class Graph {
 		return str;
 	}
 
-	adjacencyMatrixString(){
+	adjacencyMatrixString() {
 		let str = "";
 		this.adjacencyMatrix.forEach((row) => {
 			str += "[";
@@ -57,13 +58,32 @@ class Graph {
 		return str;
 	}
 
-	get adjacencyMatrix(){
+	get adjacencyMatrix() {
 		let matrix = Array(this.order).fill().map(() => Array(this.order).fill(0));
+		
+		this.nodes.forEach((node) => {
+			node.edges.forEach((edge)=> {
+				matrix[edge.a.id][edge.b.id] = 1;
+				matrix[edge.b.id][edge.a.id] = 1;
+			})
+		})
+		/*
 		this.edges.forEach((edge) => {
 			matrix[edge.a.id][edge.b.id] = 1;
 			matrix[edge.b.id][edge.a.id] = 1;
-		})
+		})*/
 		return matrix;
+	}
+
+	swap(i, j) {
+		let tempID = this.nodes[i].id;
+		this.nodes[i].id = this.nodes[j].id;
+		this.nodes[j].id = tempID;
+
+		let tempNode = this.nodes[i];
+		this.nodes[i] = this.nodes[j];
+		this.nodes[j] = tempNode;
+
 	}
 }
 
@@ -103,9 +123,15 @@ class Node {
 
 class Edge {
 	constructor(name, a, b) {
-		this.name = name;
 		this.a = a;
 		this.b = b;
+		this.a.edges.push(this);
+		this.b.edges.push(this);
+	}
+
+
+	get name() {
+		return this.a.id + "-" + this.b.id;
 	}
 
 	display() {
