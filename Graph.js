@@ -67,11 +67,7 @@ class Graph {
 				matrix[edge.b.id][edge.a.id] = 1;
 			})
 		})
-		/*
-		this.edges.forEach((edge) => {
-			matrix[edge.a.id][edge.b.id] = 1;
-			matrix[edge.b.id][edge.a.id] = 1;
-		})*/
+		
 		return matrix;
 	}
 
@@ -122,7 +118,7 @@ class Node {
 }
 
 class Edge {
-	constructor(name, a, b) {
+	constructor(a, b) {
 		this.a = a;
 		this.b = b;
 		this.a.edges.push(this);
@@ -140,6 +136,3 @@ class Edge {
 		line(this.a.pos[0], this.a.pos[1], this.b.pos[0], this.b.pos[1]);
 	}
 }
-
-
-console.log(Array(5).fill(0) == Array(5).fill(0));
