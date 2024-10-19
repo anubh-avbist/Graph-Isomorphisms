@@ -121,8 +121,10 @@ class Edge {
 	constructor(a, b) {
 		this.a = a;
 		this.b = b;
-		this.a.edges.push(this);
-		this.b.edges.push(this);
+		if(this.a.id != this.b.id){
+			this.a.edges.push(this);
+			this.b.edges.push(this);
+		}
 	}
 
 
